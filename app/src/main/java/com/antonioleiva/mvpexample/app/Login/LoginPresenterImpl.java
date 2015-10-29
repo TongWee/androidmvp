@@ -19,7 +19,10 @@
 package com.antonioleiva.mvpexample.app.Login;
 
 public class LoginPresenterImpl implements LoginPresenter, OnLoginFinishedListener {
-
+    /**UI交互中主要分为两类
+     * 第一类(LoginView)：绘制UI界面，如listview数据的展示
+     * 第二类(LoginInteractor)：相应用户操作
+     */
     private LoginView loginView;
     private LoginInteractor loginInteractor;
 

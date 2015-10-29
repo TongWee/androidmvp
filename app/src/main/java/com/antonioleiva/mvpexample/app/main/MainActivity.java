@@ -89,7 +89,7 @@ public class MainActivity extends Activity implements MainView, AdapterView.OnIt
     }
 
     @Override public void showMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

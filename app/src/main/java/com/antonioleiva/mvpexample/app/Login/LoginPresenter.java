@@ -17,7 +17,10 @@
  */
 
 package com.antonioleiva.mvpexample.app.Login;
-
+/*
+*  The only thing that the view will do is calling a method from
+*  the presenter every time there is an interface action
+* */
 public interface LoginPresenter {
     public void validateCredentials(String username, String password);
 }

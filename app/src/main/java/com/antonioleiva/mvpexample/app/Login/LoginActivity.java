@@ -28,6 +28,14 @@ import android.widget.ProgressBar;
 import com.antonioleiva.mvpexample.app.R;
 import com.antonioleiva.mvpexample.app.main.MainActivity;
 
+/**
+* LoginActivity
+* Activity是mvp框架中view的一部分
+* 登录界面活动，通过实现接口的方式解耦合
+* LoginView　主要用于更新UI，需要重写方法，但是方法内部不直接进行操作，而是传递参数交由Presenter进行处理。
+*           但是activity跳转相关的需要直接实现。
+* View.OnClickListener 主要用于对控件的监听事件进行注册
+*/
 public class LoginActivity extends Activity implements LoginView, View.OnClickListener {
 
     private ProgressBar progressBar;
@@ -48,6 +56,9 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         presenter = new LoginPresenterImpl(this);
     }
 
+    /**
+     * 只涉及UI界面更新，不涉及交互的，直接实现
+     */
     @Override public void showProgress() {
         progressBar.setVisibility(View.VISIBLE);
     }
@@ -69,6 +80,10 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         finish();
     }
 
+    /**
+     * 涉及响应交互事件的交由presenter处理
+     * @param v
+     */
     @Override public void onClick(View v) {
         presenter.validateCredentials(username.getText().toString(), password.getText().toString());
     }
